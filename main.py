@@ -2,7 +2,8 @@ import random
 
 cards = []
 suits = ["hearts", "diamonds", "clubs", "spades"]
-ranks = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+user_cards = []
 
 for suit in suits:
     for rank in ranks:
@@ -13,12 +14,12 @@ def shuffle():
 
 def deal(amount):
     for i in range(amount):
-        return cards.pop()
+        user_cards.append(cards.pop())
+    return user_cards
 
 def start():
     shuffle()
     user_input = int(input("How many cards do you want to deal? "))
-    for i in range(user_input):
-        print(deal(1))
+    print(deal(user_input))
 
 start()
